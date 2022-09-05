@@ -1,16 +1,20 @@
 //import { Component } from 'react';
-
+import {Monster} from '../../App'
 import './card.styles.css';
 
-const CardComponent = ({ monsterId, monsterName, monsterEmail }) => {
+type CardProps =  {
+  monster : Monster;
+}
+const Card = ({ monster} : CardProps ) => {
+  const {id, name, email} =  monster
   return (
-    <div className="card-container" key={monsterId}>
+    <div className="card-container" key={id}>
       <img
-        src={`https://robohash.org/${monsterId}?set=set2`}
-        alt={`monster ${monsterName}`}
+        src={`https://robohash.org/${id}?set=set2`}
+        alt={`monster ${name}`}
       />
-      <h2>{monsterName}</h2>
-      <p>{monsterEmail}</p>
+      <h2>{name}</h2>
+      <p>{email}</p>
     </div>
   );
 };
@@ -28,4 +32,4 @@ const CardComponent = ({ monsterId, monsterName, monsterEmail }) => {
 //     );
 //   }
 // }
-export default CardComponent;
+export default Card;
